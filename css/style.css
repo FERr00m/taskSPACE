@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat', 'Arial', sans-serif;
+    font-family: 'Source Code Pro', monospace, 'Arial', sans-serif;
     font-weight: 400;
     font-size: 20px;
   }
@@ -32,8 +32,9 @@ img {
     left: 0;
     right: 0;
     height: 90px;
-    background-color: rgb(33,37,41);
+    background-color: #000;
     color: blanchedalmond;
+    z-index: 9999;
 }
 
 
@@ -41,7 +42,13 @@ img {
     height: 70px;
 }
 
+.navbar {
+    background-color: #000;
+}
+
 .navbar-brand {
+    font-family: 'Teko', sans-serif;
+    font-size: 35px;
     display: flex;
     align-items: center;
 }
@@ -53,32 +60,221 @@ img {
     align-items: center;
 }
 
+.dropdown-menu.show {
+    background-color: #000;
+}
+
+.dropdown-menu.show li a {
+    color: #fff;
+}
+
+.dropdown-menu.show li a:hover {
+    background-color: #0dcaf0;
+}
+
+.dropdown-item {
+    text-transform: capitalize;
+}
+
 .promo {
-    padding: 70px 0;
     margin-top: 90px;
+    padding: 140px 0;
     min-height: calc(100vh - 90px);
-    background-image: url('/img/promoBG.jpg');
+    background-image: url('../img/promoBG2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .promo__header {
+    font-family: 'Teko', sans-serif;
     text-align: center;
-    font-size: 50px;
+    font-size: 80px;
+    text-transform: capitalize;
     font-weight: 700;
-    color: #5a61b1;
+    color: #FFFFFF;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 30px #282c91, 0 0 75px #282c91, 8px 4px 4px rgba(206,89,55,0);
     margin-bottom: 35px;
+    opacity: 0;
 }
 
 .promo__text {
     text-align: center;
     color: #fff;
-    font-size: 25px;
+    font-size: 30px;
 }
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    float: right;
+    max-width: 600px;
+    font-family: 'Caveat', cursive;
+    color: #0dcaf0;
+    letter-spacing: .1em;
+    text-shadow: 4px 6px 3px #000, 4px 6px 5px #000, 4px 6px 5px #000, 4px 6px 5px #000, 4px 6px 5px #000;
+}
+
+
 
 .footer {
     display: flex;
     align-items: center;
     height: 100px;
+}
+
+.footer .container-fluid {
+    display: flex;
+    justify-content: center;
+}
+
+/*==========PLANETS============*/
+.promo.mercury {
+    background-image: url('../img/planets/mercury.jpg');
+}
+
+.promo.venus {
+    background-image: url('../img/planets/venus.jpg');
+}
+
+.promo.earth {
+    background-image: url('../img/planets/earth.jpg');
+}
+
+.promo.mars {
+    background-image: url('../img/planets/mars.jpg');
+}
+
+.promo.jupiter {
+    background-image: url('../img/planets/jupiter.jpg');
+}
+
+.promo.saturn {
+    background-image: url('../img/planets/saturn.jpg');
+}
+
+.promo.uranus {
+    background-image: url('../img/planets/uranus.jpg');
+}
+
+.promo.neptune {
+    background-image: url('../img/planets/neptune.jpg');
+}
+/*=================*/
+
+.description {
+    padding: 100px 0;
+    min-height: 500px;
+    background-image: url('../img/planets/stars.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #e0dfdc;
+}
+
+.description__header,
+.news-list__header {
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: capitalize;
+    color: #e0dfdc;
+}
+
+.description__text {
+    text-align: left;
+}
+
+.description__text__link {
+    color: brown;
+    float: right;
+}
+
+/*========NEWS=========*/
+.promo.news {
+    background-image: url('../img/newsBG.jpg');
+}
+
+.news-list {
+    background-color: black;
+    padding: 100px 0;
+}
+
+.card {
+    height: 500px;
+    width: 325px;
+    background-color: #e0dfdc;
+}
+
+.card-body {
+    height: 320px;
+    overflow: hidden;
+}
+
+.card-title {
+    font-weight: 700;
+}
+
+.card-text {
+    overflow: hidden;
+    height: 125px;
+}
+
+.card-more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 325px) {
+    .card-more__date {
+        font-size: 15px;
+    }
+}
+
+
+.card-more__date {
+    margin: 0;
+}
+
+.news-list__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 30px;
+    column-gap: 20px;
+}
+
+.news-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #e0dfdc;
+}
+
+.news-info__header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.news-info__text {
+    text-indent: 20px;
+}
+
+.news-info__img {
+    margin-bottom: 40px;
+}
+
+.news-info__date {
+    color: #0dcaf0;
+}
+
+@media (max-width: 992px) {
+    .news-list__items {
+        justify-content: center;
+    }
 }
