@@ -78,7 +78,7 @@ img {
 
 .promo {
     margin-top: 90px;
-    padding: 140px 0;
+    padding: 140px 0 0;
     min-height: calc(100vh - 90px);
     background-image: url('../img/promoBG2.jpg');
     background-position: center;
@@ -174,10 +174,11 @@ img {
 }
 
 .description__header,
-.news-list__header {
+.news-list__header,
+.admin-list__header {
     text-align: center;
     margin-bottom: 50px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     color: #e0dfdc;
 }
 
@@ -195,7 +196,9 @@ img {
     background-image: url('../img/newsBG.jpg');
 }
 
-.news-list {
+.news-list,
+.admin-list,
+.edit-list {
     background-color: black;
     padding: 100px 0;
 }
@@ -277,4 +280,119 @@ img {
     .news-list__items {
         justify-content: center;
     }
+}
+
+/*=======LOGIN======*/
+.login-btn {
+    display: flex;
+    margin-left: .5rem;
+    justify-content: space-evenly;
+    column-gap: .5rem;
+}
+
+.promo.login {
+    background-image: url('../img/loginBG.jpg');
+}
+
+@media (max-width: 991.98px) {
+    .login-btn {
+        margin-top: .5rem;
+    }
+}
+
+#form-login {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 776.98px) {
+    #form-login {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/*=====ADMIN=========*/
+
+.promo.admin {
+    background-image: url('../img/adminBG.jpg');
+}
+
+.admin-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-body__todo {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-admin,
+.card-body-admin,
+.card-text-admin {
+    height: auto;
+    width: auto;
+}
+
+.card-admin-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    row-gap: .5rem;
+    column-gap: .5rem;
+}
+
+/*======EDIT NEWS========*/
+
+.promo.edit-news {
+    background-image: url('../img/editNewsBG.png');
+}
+
+.text-area-text {
+    height: 100%;
+}
+
+.edit-list-body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+.edit-list-body form {
+    display: flex;
+    flex-direction: column;
+    background-color: #1c202b;
+    color: #fff;
+}
+
+.edit-list-body form label {
+    padding: 10px;
+}
+
+.edit-list-item-par {
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+.btn-edit {
+    padding: 20px;
+}
+
+.promo.edit-result {
+    background-image: url('../img/editNewsResult.jpg');
+}
+
+.edit-back {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+
+/*========ADD NEWS=========*/
+
+.promo.add-news {
+    background-image: url('../img/addNewsBG.jpg');
 }

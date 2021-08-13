@@ -28,6 +28,8 @@ $(document).ready(function () {
         function reboot() {
             document.location.reload()
         }
+
+
         var btnsMoreNews = $('.more-news');
 
         btnsMoreNews.on('click', function () {
