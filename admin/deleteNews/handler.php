@@ -13,38 +13,36 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
     require_once '../../header.php';
 
     $responseSQL = 'SUCCESS';
-
+    $responseServerDeleteFiles = 'С сервера все фото тоже удалены';
     try {
         $data = validatePostData($_POST);
 
-        $stmt = $dbh->prepare(
-            "INSERT INTO `news`
-                    (`title`, `description`, `text`, `imgFull`, `imgSmall`, `date`)
-                    VALUES (:title, :description, :text, :imgFull, :imgSmall, :date)");
+        $stmt = $dbh->prepare("DELETE FROM `news` WHERE `id`=:id");
         $stmt->execute([
-            'title'=>$data['title'],
-            'description'=>$data['description'],
-            'text'=>$data['text'],
-            'imgFull'=>$data['imgFull'],
-            'imgSmall'=>$data['imgSmall'],
-            'date'=>$data['date']
+            'id'=>$data['id']
         ]);
+        try {
+            unlink(ROOT . "/{$data['imgFull']}");
+            unlink(ROOT . "/{$data['imgSmall']}");
+        } catch (Exception $errorFileDelete) {
+            $responseServerDeleteFiles = 'Некоторых фото уже не было на сервере. Проверьте пути: ' .
+                '<br>' . $data['imgFull'] . '<br>' . $data['imgSmall'];
+        }
     } catch (Exception $e) {
         $responseSQL = 'FAILED. Something went wrong...';
     }
-
-
-
 }
 ?>
 
 <main class="main">
-    <section class="promo add-result" data-name="add result">
+    <section class="promo delete-result" data-name="delete result">
         <div class="container">
             <h1 class="promo__header"><?=$responseSQL?></h1>
             <a class="btn btn-info edit-back" href="<?='index.php'?>">Назад</a>
             <div class="quote">
-                <p class="quote__author" "><?=$e;?></p>
+                <p class="quote__author"><?=$e;?></p>
+                <p class="quote__author"><?=$responseServerDeleteFiles?></p>
+                <p class="quote__author"><?=$errorFileDelete?></p>
             </div>
         </div>
     </section>

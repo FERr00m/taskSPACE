@@ -2,7 +2,11 @@
 <footer class="footer">
     <div class="container">
         <div class="container-fluid">
-            <a class="navbar-brand" href="<?='/index.php'?>">SPACE<img src="<?='/img/logo.png'?>" width="60" height="60" alt="logo"></a>
+          <a  href="<?='/index.php'?>">
+            <div class="navbar-brand">
+              <span>SPACE</span><img src="<?='/img/logo.svg'?>" width="40" height="40" alt="logo">
+            </div>
+          </a>
         </div>
     </div>
 </footer>

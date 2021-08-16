@@ -53,6 +53,11 @@ img {
     align-items: center;
 }
 
+.navbar-brand span {
+    margin-top: 7px;
+    margin-right: 10px;
+}
+
 .nav-list {
     width: 100%;
     display: flex;
@@ -216,6 +221,8 @@ img {
 
 .card-title {
     font-weight: 700;
+    height: 85px;
+    overflow: hidden;
 }
 
 .card-text {
@@ -227,6 +234,12 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.card-img-top {
+    display: flex;
+    width: 100%;
+    height: 180px;
 }
 
 @media (max-width: 325px) {
@@ -395,4 +408,35 @@ img {
 
 .promo.add-news {
     background-image: url('../img/addNewsBG.jpg');
+}
+
+.add-alert {
+    display: none;
+    color: red;
+    border: 1px solid red;
+}
+
+span[class*=symbols-length] {
+    color: red;
+}
+
+.add-alert-form {
+    padding: 15px;
+    margin: 0;
+}
+
+/*========DELETE NEWS=========*/
+
+.promo.delete-news {
+    background-image: url('../img/deleteNewsBG.jpg');
+}
+
+.delete-field {
+    padding: 20px;
+    background-color: #e0dfdc;
+    color: #000;
+}
+
+.promo.delete-result {
+    background-image: url('../img/deleteNewsResult.jpg');
 }

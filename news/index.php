@@ -23,7 +23,16 @@ $news = $dbh->query("SELECT * FROM `news`");
               <div class="news-list__items">
                   <? foreach ($news as $item): ?>
                     <div class="card">
-                      <img src="<?='/'.$item['imgSmall']?>" width="320" height="180" class="card-img-top" alt="<?=$item['title']?>">
+                      <div class="card-img-top">
+                        <img src="<?
+                          preg_match('~^img/news/small/\w+(-{0,1})\w+.(jpg|jpeg|png)$~', "{$item['imgSmall']}", $matches);
+                          if($matches) {
+                            echo '/'.$item['imgSmall'];
+                          } else {
+                            echo '/img/news/default.jpg';
+                          }
+                        ?>" height="180" alt="<?=$item['title']?>">
+                      </div>
                       <div class="card-body">
                         <h5 class="card-title"><?=$item['title']?></h5>
                         <p class="card-text"><?=$item['description']?></p>

@@ -41,8 +41,8 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
               <input class="form-control " name="imgFull" id="imgFull<?=$item['id']?>" value="<?=$item['imgFull']?>">
               <label for="imgSmall<?=$item['id']?>">Путь до маленького фото</label>
               <input class="form-control " name="imgSmall" id="imgSmall<?=$item['id']?>" value="<?=$item['imgSmall']?>">
-              <label for="date<?=$item['id']?>">Дата публикации</label>
-              <input class="form-control " name="date" id="date<?=$item['id']?>" value="<?=date("d-m-Y", strtotime($item['date']))?>">
+              <label for="date<?=$item['id']?>">Дата публикации (ГГГГ-ММ-ДД)</label>
+              <input class="form-control " name="date" id="date<?=$item['id']?>" value="<?=$item['date']?>">
               <input class="btn btn-warning btn-edit" type="submit" value="Редактировать">
             </form>
           </div>

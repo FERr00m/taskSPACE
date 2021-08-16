@@ -6,6 +6,7 @@ if ($_POST['exit']) {
     header('Location: index.php');
     die();
 }
+define('ROOT', __DIR__);
 $planets = $dbh->query("SELECT * FROM `planets`");
 
 ?>
@@ -76,7 +77,12 @@ $planets = $dbh->query("SELECT * FROM `planets`");
         <div class="container">
             <nav class="navbar navbar-dark  navbar-expand-lg ">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="<?='/index.php'?>">SPACE<img src="<?='/img/logo.png'?>" width="60" height="60" alt="logo"></a>
+
+                  <a  href="<?='/index.php'?>">
+                    <div class="navbar-brand">
+                      <span>SPACE</span><img src="<?='/img/logo.svg'?>" width="40" height="40" alt="logo">
+                    </div>
+                  </a>
 
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

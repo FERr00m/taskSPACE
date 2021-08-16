@@ -31,25 +31,32 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
                     <form action="handler.php" method="post" id="form-add">
                         <p class="edit-list-item-par">Новость</p>
 
-                        <label for="title">Заголовок</label>
-                        <textarea class="form-control" rows="1" id="title" name="title" placeholder="Напиши..."></textarea>
+                        <label for="title">Заголовок<sup>*</sup> (минимум 3, максимум 100 символов, сейчас: <span class="symbols-length-title">0</span>)</label>
+                        <p class="add-alert add-alert-title"></p>
+                        <textarea class="form-control" maxlength="100" rows="1" id="title" name="title" placeholder="Напиши..."></textarea>
 
-                        <label for="description">Краткое описание</label>
-                        <textarea class="form-control " rows="3" name="description" id="description" placeholder="Напиши..."></textarea>
+                        <label for="description">Краткое описание<sup>*</sup> (минимум 3, максимум 100 символов, сейчас: <span class="symbols-length-description">0</span>)</label>
+                        <p class="add-alert add-alert-description"></p>
+                        <textarea class="form-control " maxlength="100" rows="3" name="description" id="description" placeholder="Напиши..."></textarea>
 
-                        <label for="text">Текст</label>
-                        <textarea class="form-control" rows="10" name="text" id="text" placeholder="Напиши..."></textarea>
+                        <label for="text">Текст<sup>*</sup> (минимум 3, максимум 1500 символов, сейчас: <span class="symbols-length-text">0</span>)</label>
+                        <p class="add-alert add-alert-text"></p>
+                        <textarea class="form-control" maxlength="1500" rows="10" name="text" id="text" placeholder="Напиши..."></textarea>
 
-                        <label for="imgFull">Путь до большого фото</label>
-                        <input class="form-control " name="imgFull" id="imgFull" value="img/news/">
+                        <label for="imgFull">Путь до большого фото<sup>*</sup></label>
+                        <p class="add-alert add-alert-imgFull"></p>
+                        <input type="text" class="form-control " name="imgFull" id="imgFull" value="img/news/">
 
-                        <label for="imgSmall">Путь до маленького фото</label>
-                        <input class="form-control" name="imgSmall" id="imgSmall" value="img/news/small/">
+                        <label for="imgSmall">Путь до маленького фото<sup>*</sup></label>
+                        <p class="add-alert add-alert-imgSmall"></p>
+                        <input type="text" class="form-control" name="imgSmall" id="imgSmall" value="img/news/small/">
 
-                        <label for="date">Дата публикации</label>
-                        <input class="form-control " name="date" id="date" value="<?=date("d-m-Y")?>">
+                        <label for="date">Дата публикации<sup>*</sup> (ДД-ММ-ГГГГ)</label>
+                        <p class="add-alert add-alert-date"></p>
+                        <input type="date" class="form-control " name="date" id="date" value="<?=date("Y-m-d")?>">
 
                         <input class="btn btn-success btn-edit" type="submit" value="Добавить">
+                        <p class="add-alert add-alert-form"></p>
                     </form>
                 </div>
 
@@ -59,7 +66,7 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
 
     </section>
 </main>
-<script src="<?='/js/handlers/inputsCheck.js'?>"></script>
+<script src="<?='/js/handlers/addNewsBlockInputsCheck.js'?>"></script>
 <?php
 require_once '../../footer.php';
 ?>

@@ -9,18 +9,13 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
 } else {
 
     require_once '../../db.php';
+    require_once '../../includes/functions.php';
     require_once '../../header.php';
 
     $responseSQL = 'SUCCESS';
 
     try {
-        $id = $_POST['id'];
-        $title = htmlspecialchars($_POST['title']);
-        $description = htmlspecialchars($_POST['description']);
-        $text = htmlspecialchars($_POST['text']);
-        $imgFull = htmlspecialchars($_POST['imgFull']);
-        $imgSmall = htmlspecialchars($_POST['imgSmall']);
-        $date = htmlspecialchars($_POST['date']);
+        $data = validatePostData($_POST);
 
         $stmt = $dbh->prepare(
             "UPDATE `news`
@@ -32,13 +27,13 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
                     `date` = :date
                 WHERE `id`=:id");
         $stmt->execute([
-            'title'=>$title,
-            'description'=>$description,
-            'text'=>$text,
-            'imgFull'=>$imgFull,
-            'imgSmall'=>$imgSmall,
-            'date'=>$date,
-            'id'=>$id
+            'title'=>$data['title'],
+            'description'=>$data['description'],
+            'text'=>$data['text'],
+            'imgFull'=>$data['imgFull'],
+            'imgSmall'=>$data['imgSmall'],
+            'date'=>$data['date'],
+            'id'=>$data['id']
         ]);
     } catch (Exception $e) {
         $responseSQL = 'FAILED. Something went wrong...';
