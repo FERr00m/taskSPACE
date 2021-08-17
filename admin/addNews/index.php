@@ -43,6 +43,9 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
                         <p class="add-alert add-alert-text"></p>
                         <textarea class="form-control" maxlength="1500" rows="10" name="text" id="text" placeholder="Напиши..."></textarea>
 
+                        <label for="imgHd">Путь до HD фото (удалить путь, если нет фото)</label>
+                        <input type="text" class="form-control " name="imgHd" id="imgHd" value="img/hd/">
+
                         <label for="imgFull">Путь до большого фото<sup>*</sup></label>
                         <p class="add-alert add-alert-imgFull"></p>
                         <input type="text" class="form-control " name="imgFull" id="imgFull" value="img/news/">

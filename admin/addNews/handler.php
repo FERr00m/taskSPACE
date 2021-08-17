@@ -17,14 +17,20 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
     try {
         $data = validatePostData($_POST);
 
+        preg_match('~^img/hd/\w+(-{0,1})\w+.(jpg|jpeg|png)$~', "{$data['imgHd']}", $matches);
+        if ($data['imgHd'] == '' || !$matches) {
+            $data['imgHd'] = null;
+        }
+
         $stmt = $dbh->prepare(
             "INSERT INTO `news`
-                    (`title`, `description`, `text`, `imgFull`, `imgSmall`, `date`)
-                    VALUES (:title, :description, :text, :imgFull, :imgSmall, :date)");
+                    (`title`, `description`, `text`, `imgHd`, `imgFull`, `imgSmall`, `date`)
+                    VALUES (:title, :description, :text, :imgHd, :imgFull, :imgSmall, :date)");
         $stmt->execute([
             'title'=>$data['title'],
             'description'=>$data['description'],
             'text'=>$data['text'],
+            'imgHd'=>$data['imgHd'],
             'imgFull'=>$data['imgFull'],
             'imgSmall'=>$data['imgSmall'],
             'date'=>$data['date']
@@ -54,4 +60,3 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
 <?
 require_once '../../footer.php';
 ?>
-

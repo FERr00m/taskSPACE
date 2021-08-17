@@ -37,6 +37,8 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
               <textarea class="form-control " rows="3" name="description" id="description<?=$item['id']?>"><?=$item['description']?></textarea>
               <label for="text<?=$item['id']?>">Текст</label>
               <textarea class="form-control" rows="10" name="text" id="text<?=$item['id']?>"><?=$item['text']?></textarea>
+              <label for="imgHd<?=$item['id']?>">Путь до HD фото</label>
+              <input class="form-control " name="imgHd" id="imgHd<?=$item['id']?>" value="<?=$item['imgHd']?>">
               <label for="imgFull<?=$item['id']?>">Путь до большого фото</label>
               <input class="form-control " name="imgFull" id="imgFull<?=$item['id']?>" value="<?=$item['imgFull']?>">
               <label for="imgSmall<?=$item['id']?>">Путь до маленького фото</label>

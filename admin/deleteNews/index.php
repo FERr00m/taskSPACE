@@ -12,7 +12,7 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
     require_once '../../header.php';
 
     $news = $dbh->query("SELECT * FROM `news`");
-    
+
     //unlink(ROOT . '/img/news/free.png');
 
 }
@@ -49,12 +49,18 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
                             <?=$item['text']?>
                         </div>
 
+                        <label for="imgHd<?=$item['id']?>">Путь до HD фото</label>
+                        <div class="delete-field">
+                            <?=$item['imgHd']?>
+                        </div>
+                        <input class="form-control d-none" name="imgHd" id="imgHd<?=$item['id']?>" value="<?=$item['imgHd']?>">
 
                         <label for="imgFull<?=$item['id']?>">Путь до большого фото</label>
                         <div class="delete-field">
                             <?=$item['imgFull']?>
                         </div>
                         <input class="form-control d-none" name="imgFull" id="imgFull<?=$item['id']?>" value="<?=$item['imgFull']?>">
+
                         <label for="imgSmall<?=$item['id']?>">Путь до маленького фото</label>
                         <div class="delete-field">
                             <?=$item['imgSmall']?>

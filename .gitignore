@@ -1,3 +1,5 @@
 db.php
 registeradmin.php
 /.idea/
+/.vscode/
+/.cache/

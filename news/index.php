@@ -10,8 +10,10 @@ $news = $dbh->query("SELECT * FROM `news`");
     <section class="promo news" data-name="news">
         <div class="container">
             <h1 class="promo__header">NEWS</h1>
+            <?//<a href="<?='/'.getRoot(__FILE__)">ssss</a> Доработать?>
+
             <div class="quote">
-                <h3 class="quote__text">"Перед лицом Космоса большинство людских дел выглядят незначительными, даже пустячными."</h3>
+                <blockquote cite="https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B3%D0%B0%D0%BD,_%D0%9A%D0%B0%D1%80%D0%BB" class="quote__text">"Перед лицом Космоса большинство людских дел выглядят незначительными, даже пустячными."</blockquote>
                 <p class="quote__author" title="Сэр Фред Хойл — известный британский астроном и космолог.">Карл Саган</p>
             </div>
         </div>
@@ -38,7 +40,23 @@ $news = $dbh->query("SELECT * FROM `news`");
                         <p class="card-text"><?=$item['description']?></p>
                         <div class="card-more">
                           <a href="#result" class="btn btn-info more-news" id="<?=$item['id']?>">Подробнее</a>
-                          <p class="card-more__date"><?=date("d-m-Y", strtotime($item['date']))?></p>
+                          <? if ($_COOKIE['user'] == 'admin'):?>
+                            <div id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" data-name="admin-links" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                ADMIN
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="<?='/admin/editNews/index.php#form'.$item['id']?>" id="">EDIT</a></li>
+                                <li><a class="dropdown-item" href="<?='/admin/deleteNews/index.php#form'.$item['id']?>" id="">DEL</a></li>
+                              </ul>
+                            </li>
+                            </ul>
+                            </div>
+                            <? else:?>
+                              <p class="card-more__date"><?=date("d-m-Y", strtotime($item['date']))?></p>
+                            <? endif;?>
                         </div>
 
                       </div>

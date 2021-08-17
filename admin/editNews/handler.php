@@ -16,12 +16,17 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
 
     try {
         $data = validatePostData($_POST);
+        preg_match('~^img/hd/\w+(-{0,1})\w+.(jpg|jpeg|png)$~', "{$data['imgHd']}", $matches);
+        if ($data['imgHd'] == '' || !$matches) {
+            $data['imgHd'] = null;
+        }
 
         $stmt = $dbh->prepare(
             "UPDATE `news`
                 SET `title` = :title,
                     `description` = :description,
                     `text` = :text,
+                    `imgHd` = :imgHd,
                     `imgFull` = :imgFull,
                     `imgSmall` = :imgSmall,
                     `date` = :date
@@ -30,6 +35,7 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
             'title'=>$data['title'],
             'description'=>$data['description'],
             'text'=>$data['text'],
+            'imgHd'=>$data['imgHd'],
             'imgFull'=>$data['imgFull'],
             'imgSmall'=>$data['imgSmall'],
             'date'=>$data['date'],
@@ -60,4 +66,3 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
 <?
 require_once '../../footer.php';
 ?>
-

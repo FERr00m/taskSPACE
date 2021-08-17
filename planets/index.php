@@ -7,8 +7,6 @@ require_once '../db.php';
 require_once '../header.php';
 $planets = $dbh->query("SELECT * FROM `planets`");
 
-
-
 ?>
 <section class="promo <?=$_COOKIE['planet']?>" data-name="planets">
   <div class="container">

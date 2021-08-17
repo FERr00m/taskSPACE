@@ -11,3 +11,8 @@ function validatePostData($postData) {
     }
     return $postData;
 }
+
+function getRoot($path) {
+    $path = preg_replace('~/\D+public_html/~', '', $path);
+    return  $path;
+}

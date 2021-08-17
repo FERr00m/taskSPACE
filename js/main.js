@@ -46,9 +46,31 @@ $(document).ready(function () {
                 }
             });
         })
+
+        //Flex Slider
+        $('.flexslider').flexslider({
+            animation: "slide",
+
+        });
+
+
+        //Удаление/добавление класса в навигации для правильного отображения для мобильных
+        var divNav = $('#wrapper-div-nav');
+        if ($('.navbar-toggler').css('display') !== 'none') {
+            divNav.removeClass('btn-group');
+        } else {
+            divNav.addClass('btn-group');
+        }
+        $(window).resize(function() {
+
+            if ($('.navbar-toggler').css('display') !== 'none') {
+                divNav.removeClass('btn-group');
+            } else {
+                divNav.addClass('btn-group');
+            }
+        })
     } catch (e) {
         console.error('Ошибка', e);
     }
 
 })
-
