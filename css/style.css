@@ -1,3 +1,7 @@
+:root {
+    --main-color: #0dcaf0;
+}
+
 body {
     font-family: 'Source Code Pro', monospace, 'Arial', sans-serif;
     font-weight: 400;
@@ -26,6 +30,87 @@ img {
     height: auto;
 }
 
+/*=====LOADER======*/
+
+.overlay-loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .spinner-loader {
+
+    width: 50px;
+    height: 50px;
+    display: grid;
+
+}
+.spinner-loader::before,
+.spinner-loader::after {
+    content:"";
+    grid-area: 1/1;
+    --c: radial-gradient(farthest-side,#25b09b 92%,#0000);
+    background:
+      var(--c) 50%  0,
+      var(--c) 50%  100%,
+      var(--c) 100% 50%,
+      var(--c) 0    50%;
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    animation: spinner 1s infinite;
+}
+.spinner-loader::before {
+  margin:4px;
+  filter:hue-rotate(45deg);
+  background-size: 8px 8px;
+  animation-timing-function: linear
+}
+
+@keyframes spinner{
+  100%{transform: rotate(.5turn)}
+} */
+
+.spinner-loader {
+    width: 50px;
+    height: calc(50px*0.866);
+    position: relative;
+    background:conic-gradient(from 120deg at 50% 64%,#0000, var(--main-color) 1deg 120deg,#0000 121deg);
+    transform-origin: 50% 50%;
+    animation: sp7-0 1.5s infinite cubic-bezier(0.3,1,0,1);
+  }
+  .spinner-loader:before,
+  .spinner-loader:after {
+    content:'';
+    position: absolute;
+    inset:0;
+    background:inherit;
+    transform-origin: 50% 66%;
+    animation: sp7-1 1.5s infinite;
+  }
+  .spinner-loader:after {
+    --s:-1;
+  }
+
+  @keyframes sp7-0 {
+     0%,30%      {transform: rotate(0)}
+     70%         {transform: rotate(120deg)}
+     70.01%,100% {transform: rotate(360deg)}
+  }
+
+  @keyframes sp7-1 {
+     0%      {transform: rotate(calc(var(--s,1)*120deg)) translate(0)}
+     30%,70% {transform: rotate(calc(var(--s,1)*120deg)) translate(calc(var(--s,1)*-5px),10px)}
+     100%    {transform: rotate(calc(var(--s,1)*120deg)) translate(0)}
+  }
+
 .header {
     position: fixed;
     top: 0;
@@ -34,7 +119,7 @@ img {
     height: 90px;
     background-color: #000;
     color: blanchedalmond;
-    z-index: 9999;
+    z-index: 999;
 }
 
 
@@ -80,21 +165,21 @@ img {
 .btn-secondary:hover,
 .btn-secondary:active {
     background-color: inherit;
-    color: #0dcaf0;
+    color: var(--main-color);
 }
 
 a.nav-link:hover {
-    color: #0dcaf0 !important;
+    color: var(--main-color) !important;
 }
 
 .btn-secondary:focus {
-    box-shadow: 0 0 0 0.25rem #0dcaf0;
+    box-shadow: 0 0 0 0.25rem var(--main-color);
     background-color: inherit;
-    color: #0dcaf0;
+    color: var(--main-color);
 }
 
 .dropdown-menu-adaptive {
-    border: 2px solid #0dcaf0;
+    border: 2px solid var(--main-color);
     border-radius: 3px;
 }
 
@@ -114,7 +199,7 @@ a.nav-link:hover {
 }
 
 .dropdown-menu.show li a:hover {
-    background-color: #0dcaf0;
+    background-color: var(--main-color);
 }
 
 .dropdown-item {
@@ -162,7 +247,134 @@ a.nav-link:hover {
     text-shadow: #000000 1px 3px 1px;
 }
 
+/*==========NASA APOD============*/
 
+.nasa-apod {
+    min-height: 500px;
+    background-color: black;
+    padding: 80px 0;
+}
+
+.nasa-apod__header {
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+    font-size: 65px;
+    margin: 0;
+    padding: 0;
+    color: #fc3d21;
+    cursor: help;
+    position: relative;
+}
+
+.nasa-apod__header::after {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    content: "?";
+    font-size: 25px;
+}
+
+.nasa-apod__header span {
+    margin-left: -999em;
+    position: absolute;
+}
+.nasa-apod__header:hover span {
+    font-family: Calibri, Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    position: absolute;
+    right: -40px;
+    bottom: 52px;
+    z-index: 99;
+    margin-left: 0;
+    width: 250px;
+    background-color: #fff;
+    color: #000;
+}
+
+.nasa-apod-link {
+    display: inline;
+    color: #d81e03;
+}
+
+.nasa-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.nasa-link:hover {
+    transition: opacity 1.0s ease;
+    opacity: .5;
+}
+
+.apod-info {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    min-height: 500px;
+    gap: 20px;
+}
+
+.apod-description-wrapper {
+    max-width: 700px;
+}
+
+.apod-description-wrapper a {
+    padding-left: 0;
+}
+
+.apod-info__img {
+    padding: 1.5em;
+    padding-bottom: 6em;
+    background-color:  #ffffff;
+    -webkit-box-shadow: 0px 0px 4px 2px #000000 inset;
+    -moz-box-shadow: 0px 0px 4px 2px #000000 inset;
+    box-shadow: 0px 0px 4px 2px #000000 inset;
+}
+
+.apod-figure {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.apod-author {
+    transform: rotate(351deg);
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    font-family: 'Style Script', cursive;
+    font-size: 35px;
+}
+
+.apod-info__header {
+    color: #fc3d21;
+    text-align: center;
+}
+
+.apod-info__text {
+    color: #ffebcd;
+}
+
+.apod-info__date {
+    color: var(--main-color);
+}
+
+@media (max-width: 1199.98px) {
+    .apod-info,
+    .apod-description-wrapper {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .apod-description-wrapper a {
+        display: block;
+        margin: 0 auto;
+        padding-left: .75rem;
+        width: 200px;
+        border: 1px solid;
+    }
+}
 
 .footer {
     display: flex;
@@ -331,7 +543,7 @@ a.nav-link:hover {
 }
 
 .news-info__date {
-    color: #0dcaf0;
+    color: var(--main-color);
 }
 
 @media (max-width: 992px) {
@@ -490,7 +702,7 @@ span[class*=symbols-length] {
 
 .btn-hd-foto {
     margin-bottom: 15px;
-    color: #ff5b5b;
+    color: #fc3d21;
 }
 
 /*========BREADCRUMB=========*/

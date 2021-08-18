@@ -1,12 +1,14 @@
 $(document).ready(function () {
     try {
         var menuLinks = $('.dropdown-item');
-        var header = $('.promo__header');
         var headerData = $('.promo').attr('data-name');
         var title = $('title');
         var links = $('.nav-link');
+        var header = $('.promo__header');
 
-        header.fadeTo(2000, 1);
+        $('.overlay-loader').fadeOut(1000);
+
+        header.fadeTo(3000, 1);
 
         // Меняем title
         title.text(headerData[0].toUpperCase() + headerData.slice(1))
@@ -25,6 +27,8 @@ $(document).ready(function () {
             }
         })
 
+
+        //AJAX вывод новости подробнее
         function reboot() {
             document.location.reload()
         }
