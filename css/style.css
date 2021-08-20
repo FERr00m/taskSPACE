@@ -387,16 +387,163 @@ a.nav-link:hover {
     justify-content: center;
 }
 
-/*==========PLANETS============*/
+/*==========SOLAR SYSTEM============*/
+
+/*===PLANETS===*/
+
+.promo.planets {
+    padding-top: 50px;
+    background-image: url('../img/planets/stars.jpg');
+    position: relative;
+}
+
+.planets-wrapper {
+    padding: 0 15px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.planets-navigation {
+    position: relative;
+}
+
+.btn-planets-nav {
+    position: relative;
+    text-transform: capitalize;
+    font-size: 30px;
+    color: var(--main-color);
+    flex-basis: 300px;
+    text-align: center;
+}
+
+.btn-planets-nav:hover {
+    color: var(--main-color);
+}
+
+.btn-planets-nav.previus {
+    position: absolute;
+    left: 0;
+    padding-left: 45px;
+    text-align: left;
+}
+
+.btn-planets-nav.previus::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0px;
+    width: 30px;
+    height: 30px;
+    background-image: url('../img/planets/icons/arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(180deg);
+
+}
+
+.btn-planets-nav.next {
+    position: absolute;
+    right: 0;
+    padding-right: 45px;
+    text-align: right;
+}
+
+.btn-planets-nav.next::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    background-image: url('../img/planets/icons/arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.planets-back {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+}
+
+.planets-link-wrapper:hover {
+    transition: opacity 1.0s ease;
+    opacity: 0.5;
+}
+
+@media (max-width: 550px) {
+    .planets-back {
+        margin-top: 120px;
+    }
+}
+
+@media (max-width: 999.98px) {
+    .planets-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.planet-icon.sun {
+    max-width: 600px;
+    max-height: 600px;
+}
+
+.planet-icon.mercury {
+    max-width: 70px;
+    max-height: 70px;
+}
+
+.planet-icon.venus {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.planet-icon.earth {
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.planet-icon.mars {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.planet-icon.jupiter {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.planet-icon.saturn {
+    max-width: 450px;
+    max-height: 450px;
+}
+
+.planet-icon.uranus {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.planet-icon.neptune {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.planets-group {
+    display: flex;
+    align-items: center;
+}
 
 .icons-planets {
-    transition: all 60s ease;
+    transition: all 1s ease;
 }
 
 .icons-planets:hover {
     transition: all 2s ease;
-
-    animation: planet-1 60s infinite;
+    /* animation: planet-1 30s infinite; */
+    cursor: pointer;
 }
 
 
@@ -406,7 +553,7 @@ a.nav-link:hover {
     33.2%       {transform: rotateZ(120deg);}
     49.8%      {transform: rotateZ(180deg);}
     83%         {transform: rotateZ(240deg);} */
-    100% {transform: rotateZ(360deg);}
+    100% {transform: rotateZ(1080deg);}
 }
 
 .promo.mercury {
@@ -462,6 +609,7 @@ a.nav-link:hover {
 
 .description__text {
     text-align: left;
+    margin-bottom: 50px;
 }
 
 .description__text__link {

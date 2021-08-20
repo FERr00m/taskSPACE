@@ -3,11 +3,11 @@ require_once 'db.php';
 if ($_POST['exit']) {
     setcookie('user', null, -1, '/');
     session_destroy();
-    header('Location: index.php');
+    header('Location: ./');
     die();
 }
 require_once 'includes/functions.php';
-define('ROOT', __DIR__);
+require_once 'constants.php';
 $planets = $dbh->query("SELECT * FROM `planets`");
 
 ?>
@@ -104,7 +104,7 @@ $planets = $dbh->query("SELECT * FROM `planets`");
             <nav class="navbar navbar-dark  navbar-expand-lg ">
                 <div class="container-fluid">
 
-                  <a  href="<?='/index.php'?>">
+                  <a  href="<?='/'?>">
                     <div class="navbar-brand">
                       <span>SPACE</span><img src="<?='/img/logo.svg'?>" width="40" height="40" alt="logo">
                     </div>
@@ -117,10 +117,10 @@ $planets = $dbh->query("SELECT * FROM `planets`");
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link"  data-name="space" href="<?='/index.php'?>">Главная</a>
+                        <a class="nav-link"  data-name="space" href="<?='/'?>">Главная</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" data-name="news" href="<?='/news/index.php'?>">Новости</a>
+                        <a class="nav-link" data-name="news" href="<?='/news/'?>">Новости</a>
                       </li>
 
                       <!-- Группа вложенной навигации -->
@@ -133,19 +133,18 @@ $planets = $dbh->query("SELECT * FROM `planets`");
                             <li>
                               <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Планеты
+                                  Солнечная система
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                   <li class="dropdown-menu-adaptive">
-                                  <? foreach ($planets as $planet): ?>
-                                    <a class="dropdown-item" href="<?='/planets/index.php'?>" id="<?=$planet['nameEng']?>"><?=$planet['nameRus']?></a>
-                                  <? endforeach;?>
+                                    <a class="dropdown-item" href="<?='/space/solarsystem/planets/';?>">Планеты</a>
                                   </li>
 
                                 </ul>
                               </div>
                             </li>
-                            <li><a class="dropdown-item" href="#">Еще одна ссылка</a></li>
+
+                            <!-- <li><a class="dropdown-item" href="#">Еще одна ссылка</a></li> -->
 
                           </ul>
                         </div>
@@ -161,7 +160,7 @@ $planets = $dbh->query("SELECT * FROM `planets`");
                       <? if (!$_COOKIE['user']): ?>
                         <a class="btn btn-info" href="<?='/login.php'?>">войти</a>
                       <?else:?>
-                        <a class="btn btn-info" href="<?='/admin/index.php'?>"><?=strtoupper($_COOKIE['user'])?></a>
+                        <a class="btn btn-info" href="<?='/admin/'?>"><?=strtoupper($_COOKIE['user'])?></a>
                         <form method="post">
                           <input class="btn btn-danger" type="submit" value="EXIT" name="exit">
                         </form>

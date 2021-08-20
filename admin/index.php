@@ -35,9 +35,9 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
               <h5 class="card-title">Редактировать&nbsp;/ Добавить&nbsp;/ Удалить</h5>
               <p class="card-text card-text-admin">Новости — оперативная информация, которая представляет политический, социальный или экономический интерес для аудитории в своей свежести, то есть сообщения о событиях, произошедших недавно или происходящих в данный момент.</p>
               <div class="card-admin-links">
-                <a href="<?='/admin/editNews/index.php'?>" class="btn btn-primary">Редактировать</a>
-                <a href="<?='/admin/addNews/index.php'?>" class="btn btn-primary">Добавить</a>
-                <a href="<?='/admin/deleteNews/index.php'?>" class="btn btn-primary">Удалить</a>
+                <a href="<?='/admin/editNews/'?>" class="btn btn-primary">Редактировать</a>
+                <a href="<?='/admin/addNews/'?>" class="btn btn-primary">Добавить</a>
+                <a href="<?='/admin/deleteNews/'?>" class="btn btn-primary">Удалить</a>
               </div>
             </div>
           </div>

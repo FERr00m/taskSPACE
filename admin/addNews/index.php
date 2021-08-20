@@ -25,7 +25,7 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
         <h2 class="admin-list__header">ДОБАВИТЬ НОВОСТЬ</h2>
 
         <div class="container edit-list-body">
-            <a class="btn btn-info edit-back" href="<?='../index.php'?>">Назад</a>
+            <a class="btn btn-info edit-back" href="<?='../'?>">Назад</a>
 
                 <div class="card card-admin">
                     <form action="handler.php" method="post" id="form-add">
@@ -63,7 +63,7 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
                     </form>
                 </div>
 
-            <a class="btn btn-info edit-back" href="<?='../index.php'?>">Назад</a>
+            <a class="btn btn-info edit-back" href="<?='../'?>">Назад</a>
         </div>
 
 

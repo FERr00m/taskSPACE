@@ -26,7 +26,7 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
       <h2 class="admin-list__header">Редактирование</h2>
 
       <div class="container edit-list-body">
-        <a class="btn btn-info edit-back" href="<?='../index.php'?>">Назад</a>
+        <a class="btn btn-info edit-back" href="<?='../'?>">Назад</a>
           <? foreach ($news as $item): ?>
           <div class="card card-admin">
             <form action="handler.php" method="post" id="form<?=$item['id']?>">
@@ -49,7 +49,7 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
             </form>
           </div>
         <?endforeach;?>
-        <a class="btn btn-info edit-back" href="<?='../index.php'?>">Назад</a>
+        <a class="btn btn-info edit-back" href="<?='../'?>">Назад</a>
       </div>
 
 
