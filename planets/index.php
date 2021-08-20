@@ -8,13 +8,9 @@ require_once '../header.php';
 $planets = $dbh->query("SELECT * FROM `planets`");
 
 ?>
-<section class="promo <?=$_COOKIE['planet']?>" data-name="planets">
+<section class="promo <?=$_COOKIE['planet']?>" data-name="Раздел о планетах - Space">
   <div class="container">
     <h1 class="promo__header"><?=$_COOKIE['planet']?></h1>
-<!--    <div class="quote">-->
-<!--      <h3 class="quote__text">"Космос вовсе не далек. До него всего час езды — при условии, что твоя машина может ехать вертикально вверх."</h3>-->
-<!--      <p class="quote__author" title="Сэр Фред Хойл — известный британский астроном и космолог.">сэр Фред Хойл</p>-->
-<!--    </div>-->
   </div>
 </section>
 <section class="description">

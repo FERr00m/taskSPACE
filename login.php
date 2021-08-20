@@ -14,7 +14,8 @@ if ($_POST['enter']) {
             setcookie('user', $_POST['login'], [
               'expires' => time() + 3600,
                 'path' => '/',
-                'httponly' => true
+                'httponly' => true,
+                'secure' => true
             ]);
             header('Location: ./admin/index.php');
             die();

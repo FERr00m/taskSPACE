@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: 'Source Code Pro', monospace, 'Arial', sans-serif;
+    font-family: 'Source Code Pro', monospace;
     font-weight: 400;
     font-size: 20px;
   }
@@ -46,37 +46,6 @@ img {
     align-items: center;
     justify-content: center;
 }
-/* .spinner-loader {
-
-    width: 50px;
-    height: 50px;
-    display: grid;
-
-}
-.spinner-loader::before,
-.spinner-loader::after {
-    content:"";
-    grid-area: 1/1;
-    --c: radial-gradient(farthest-side,#25b09b 92%,#0000);
-    background:
-      var(--c) 50%  0,
-      var(--c) 50%  100%,
-      var(--c) 100% 50%,
-      var(--c) 0    50%;
-    background-size: 12px 12px;
-    background-repeat: no-repeat;
-    animation: spinner 1s infinite;
-}
-.spinner-loader::before {
-  margin:4px;
-  filter:hue-rotate(45deg);
-  background-size: 8px 8px;
-  animation-timing-function: linear
-}
-
-@keyframes spinner{
-  100%{transform: rotate(.5turn)}
-} */
 
 .spinner-loader {
     width: 50px;
@@ -110,6 +79,9 @@ img {
      30%,70% {transform: rotate(calc(var(--s,1)*120deg)) translate(calc(var(--s,1)*-5px),10px)}
      100%    {transform: rotate(calc(var(--s,1)*120deg)) translate(0)}
   }
+
+
+/*=======HEADER======*/
 
 .header {
     position: fixed;
@@ -172,6 +144,14 @@ a.nav-link:hover {
     color: var(--main-color) !important;
 }
 
+.navbar-nav .nav-item a.nav-link {
+    color: #fff;
+}
+
+.nav-item a.nav-link[data-name=admin-links] {
+    color: var(--main-color);
+}
+
 .btn-secondary:focus {
     box-shadow: 0 0 0 0.25rem var(--main-color);
     background-color: inherit;
@@ -210,10 +190,25 @@ a.nav-link:hover {
     margin-top: 90px;
     padding: 140px 0 0;
     min-height: calc(100vh - 90px);
-    background-image: url('../img/promoBG2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.promo.main {
+    background-image: url('../img/promoBG2.jpg');
+}
+
+.promo.error {
+    background-image: url('../img/errorBG.jpg');
+}
+
+.error-text p {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 30px #282c91, 0 0 75px #282c91, 8px 4px 4px rgba(206,89,55,0);
 }
 
 .promo__header {
@@ -325,23 +320,27 @@ a.nav-link:hover {
 }
 
 .apod-info__img {
-    padding: 1.5em;
-    padding-bottom: 6em;
+    padding: 0.9em;
+    padding-bottom: 5em;
     background-color:  #ffffff;
     -webkit-box-shadow: 0px 0px 4px 2px #000000 inset;
     -moz-box-shadow: 0px 0px 4px 2px #000000 inset;
     box-shadow: 0px 0px 4px 2px #000000 inset;
+    margin-bottom: 10px;
+}
+
+.apod-figure-wrapper {
+    position: relative;
 }
 
 .apod-figure {
-    position: relative;
     flex-shrink: 0;
 }
 
 .apod-author {
     transform: rotate(351deg);
     position: absolute;
-    bottom: 40px;
+    bottom: 65px;
     right: 20px;
     font-family: 'Style Script', cursive;
     font-size: 35px;
@@ -380,6 +379,7 @@ a.nav-link:hover {
     display: flex;
     align-items: center;
     height: 100px;
+    background-color: #e0dfdc;
 }
 
 .footer .container-fluid {
@@ -388,6 +388,27 @@ a.nav-link:hover {
 }
 
 /*==========PLANETS============*/
+
+.icons-planets {
+    transition: all 60s ease;
+}
+
+.icons-planets:hover {
+    transition: all 2s ease;
+
+    animation: planet-1 60s infinite;
+}
+
+
+@keyframes planet-1 {
+    0%          {transform: rotateZ(0deg);}
+    /* 16.6%         {transform: rotateZ(600deg);}
+    33.2%       {transform: rotateZ(120deg);}
+    49.8%      {transform: rotateZ(180deg);}
+    83%         {transform: rotateZ(240deg);} */
+    100% {transform: rotateZ(360deg);}
+}
+
 .promo.mercury {
     background-image: url('../img/planets/mercury.jpg');
 }
@@ -419,7 +440,6 @@ a.nav-link:hover {
 .promo.neptune {
     background-image: url('../img/planets/neptune.jpg');
 }
-/*=================*/
 
 .description {
     padding: 100px 0;
@@ -450,6 +470,7 @@ a.nav-link:hover {
 }
 
 /*========NEWS=========*/
+
 .promo.news {
     background-image: url('../img/newsBG.jpg');
 }
@@ -519,12 +540,21 @@ a.nav-link:hover {
     column-gap: 20px;
 }
 
+.container .hr-news-details {
+    border: 2px solid var(--main-color);
+    height: 2px;
+}
+
+.news-details {
+    padding-top: 30px;
+}
+
 .news-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 800px;
+    max-width: 1024px;
     margin: 0 auto;
     color: #e0dfdc;
 }
@@ -553,6 +583,7 @@ a.nav-link:hover {
 }
 
 /*=======LOGIN======*/
+
 .login-btn {
     display: flex;
     margin-left: .5rem;
@@ -720,4 +751,19 @@ span[class*=symbols-length] {
     padding-right: .5rem;
     color: #6c757d;
     content: var(--bs-breadcrumb-divider, ">");
+}
+
+/*=====PAGE UP BTN=======*/
+
+.pageup {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+}
+
+.pageup img {
+    width: 100%;
 }

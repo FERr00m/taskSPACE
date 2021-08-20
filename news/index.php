@@ -7,9 +7,9 @@ $news = $dbh->query("SELECT * FROM `news`");
 ?>
 
 <main class="main">
-    <section class="promo news" data-name="news">
+    <section class="promo news" data-name="Новости про космос - Space">
         <div class="container">
-            <h1 class="promo__header">NEWS</h1>
+            <p class="promo__header">NEWS</p>
             <?//<a href="<?='/'.getRoot(__FILE__)">ssss</a> Доработать?>
 
             <div class="quote">
@@ -20,7 +20,7 @@ $news = $dbh->query("SELECT * FROM `news`");
     </section>
     <section class="news-list">
       <div class="container" id="result">
-        <h2 class="news-list__header">Новости</h2>
+        <h1 class="news-list__header">Новости Космоса</h1>
           <div class="result" >
               <div class="news-list__items">
                   <? foreach ($news as $item): ?>
@@ -39,7 +39,7 @@ $news = $dbh->query("SELECT * FROM `news`");
                         <h5 class="card-title"><?=$item['title']?></h5>
                         <p class="card-text"><?=$item['description']?></p>
                         <div class="card-more">
-                          <a href="#result" class="btn btn-info more-news" id="<?=$item['id']?>">Подробнее</a>
+                          <a href="<?='/news/details.php?id='.$item['id']?>" class="btn btn-info more-news" id="<?=$item['id']?>">Подробнее</a>
                           <? if ($_COOKIE['user'] == 'admin'):?>
                             <div id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">

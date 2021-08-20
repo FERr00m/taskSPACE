@@ -6,57 +6,33 @@ $(document).ready(function () {
         var links = $('.nav-link');
         var header = $('.promo__header');
 
+        //Скрываем лоадер после загрузки DOM
         $('.overlay-loader').fadeOut(1000);
-
         header.fadeTo(3000, 1);
+        //===============
 
         // Меняем title
         title.text(headerData[0].toUpperCase() + headerData.slice(1))
+        //=============
 
         // Устанавливаем куки по которому будем ориентироваться при запросе с БД
         menuLinks.on('click', function (e) {
             document.cookie = `planet=${$(this).attr('id')}; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT`;
         })
+        //============
 
-        // Добавляем/удаляем класс active в меню
-        links.each(function () {
-            if ($(this).attr('data-name') === title.text().toLowerCase()) {
-                $(this).addClass('active');
-            } else {
-                $(this).removeClass('active');
-            }
+        //News Details кнопка назад=====
+        $('.back').on('click', function () {
+            history.go(-1);
         })
+        //====================
 
-
-        //AJAX вывод новости подробнее
-        function reboot() {
-            document.location.reload()
-        }
-
-
-        var btnsMoreNews = $('.more-news');
-
-        btnsMoreNews.on('click', function () {
-
-            $.ajax({
-                type: "GET",
-                url: "handler.php",
-                data: `id=${$(this).attr('id')}`,
-                success: function (response) {
-                    $('.result').html(response);
-                    $('.back').on('click', function (e) {
-                        reboot()
-                    });
-                }
-            });
-        })
-
-        //Flex Slider
+        //Flex Slider========
         $('.flexslider').flexslider({
             animation: "slide",
 
         });
-
+        //=============
 
         //Удаление/добавление класса в навигации для правильного отображения для мобильных
         var divNav = $('#wrapper-div-nav');
@@ -73,6 +49,24 @@ $(document).ready(function () {
                 divNav.addClass('btn-group');
             }
         })
+        //================
+
+        //кнопка прокрутки
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 400) {
+                $('.pageup').fadeIn('slow');
+            } else {
+                $('.pageup').fadeOut('slow');
+            }
+        });
+
+        $('a.pageup').click(function(){
+            const _href = $(this).attr("href");
+            $("html, body").animate({scrollTop: ($(_href).offset() + 90).top+"px"});
+            return false;
+        });
+        //==================
+
     } catch (e) {
         console.error('Ошибка', e);
     }

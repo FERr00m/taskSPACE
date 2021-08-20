@@ -2,7 +2,7 @@
 require_once 'header.php';
 ?>
 <main class="main">
-  <section class="promo" data-name="space">
+  <section class="promo main" data-name="space - сайт о космосе">
     <div class="container">
       <h1 class="promo__header">SPACE</h1>
       <div class="quote">
@@ -15,24 +15,24 @@ require_once 'header.php';
   <section class="nasa-apod">
     <div class="container">
       <div class="nasa-header-wrapper">
-        <a class="nasa-link" href="https://www.nasa.gov/" target="_blanck"><img src="<?='/img/nasa/nasaLogo.svg'?>" width="80" height="80" alt="nasa-logo"></a>
-        <h2 class="nasa-apod__header">APOD<span>Один из самых популярных веб-сайтов НАСА - <a class="nasa-apod-link" href="https://apod.nasa.gov/apod/astropix.html" target="_blanck">Astronomy Picture of the Day</a>. Фактически, этот сайт - один из самых популярных во всех федеральных агентствах.</span></h2>
+        <a class="nasa-link" href="https://www.nasa.gov/" target="blanck"><img src="<?='/img/nasa/nasaLogo.svg'?>" width="80" height="80" alt="nasa-logo"></a>
+        <h2 class="nasa-apod__header">APOD<span>Один из самых популярных веб-сайтов НАСА - <a class="nasa-apod-link" href="https://apod.nasa.gov/apod/astropix.html" target="blanck">Astronomy Picture of the Day</a>. Фактически, этот сайт - один из самых популярных во всех федеральных агентствах.</span></h2>
       </div>
       <div class="apod-info">
-
-        <figure class="apod-figure">
-            <img class="apod-info__img" src=""
-                alt=""
-                width="512" height="">
-
-            <figcaption class="apod-info__header"></figcaption>
-            <p class="apod-author"></p>
-        </figure>
+        <div class="apod-figure-wrapper">
+          <figure class="apod-figure">
+              <img class="apod-info__img" src="#"
+                  alt="alt"
+                  width="512" >
+              <figcaption class="apod-info__header"></figcaption>
+          </figure>
+          <p class="apod-author"></p>
+        </div>
 
         <div class="apod-description-wrapper">
           <p class="apod-info__date"></p>
           <p class="apod-info__text"></p>
-          <a class="btn btn-hd-foto" href="" target="_blanck">HD фото</a>
+          <a class="btn btn-hd-foto" href="" target="blanck">HD фото</a>
         </div>
       </div>
 

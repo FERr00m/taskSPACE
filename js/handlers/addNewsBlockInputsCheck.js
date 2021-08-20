@@ -80,7 +80,6 @@ const checkObj = (obj) => {
             item.addEventListener('blur', () => {
                 item.value = checkFunc(checkHyphenSpace(item.value));
                 let p = form.querySelector(`.add-alert-${item.id}`);
-                console.dir(item)
                 if (item.value.length < 3) {
                     p.innerText = ('Слишком короткое значение!');
                     p.style.display = 'block';
@@ -101,7 +100,6 @@ const checkObj = (obj) => {
         form.addEventListener('submit', function (e) {
             if (!checkObj(canSubmit)) {
                 e.preventDefault();
-                console.log(canSubmit)
                 let alertFormP = this.querySelector('.add-alert-form');
 
                 alertFormP.innerHTML = `Необходимо заполнить: <br>`;
@@ -116,7 +114,3 @@ const checkObj = (obj) => {
     } catch (e) {
         console.error('Ошибка в проверке инпутов', e);
     }
-
-
-
-

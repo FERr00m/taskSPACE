@@ -19,6 +19,8 @@ $planets = $dbh->query("SELECT * FROM `planets`");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#317EFB"/>
+    <meta name="keywords" content="космос, вселенная, планета, новости, фото, комета, тумманость">
+    <meta name="description" content="Сайт о космосе и о различных явлениях, которые его наполняют.">
     <!-- Обязательный (и достаточный) тег для браузеров -->
     <link type="image/x-icon" rel="shortcut icon" href="<?='/favicon.ico'?>">
 
@@ -63,9 +65,7 @@ $planets = $dbh->query("SELECT * FROM `planets`");
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Teko:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Source+Code+Pro:wght@400;500;700&family=Style+Script&family=Teko:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Стили Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -76,14 +76,30 @@ $planets = $dbh->query("SELECT * FROM `planets`");
     <!-- main CSS -->
     <link rel="stylesheet"  href="<?='/css/style.css'?>">
 
-    <title>SPACE</title>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(84193969, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+      });
+    </script>
+
+    <!-- /Yandex.Metrika counter -->
+
+    <title>Space - сайт о космосе</title>
 </head>
-<body>
+<body id="up">
+    <noscript><div><img src="https://mc.yandex.ru/watch/84193969" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <div class="overlay-loader">
       <div class="spinner-loader"></div>
     </div>
 
-    <header class="header">
+    <header class="header" >
         <div class="container">
             <nav class="navbar navbar-dark  navbar-expand-lg ">
                 <div class="container-fluid">
@@ -120,11 +136,11 @@ $planets = $dbh->query("SELECT * FROM `planets`");
                                   Планеты
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                  <div class="dropdown-menu-adaptive">
-                                <? foreach ($planets as $planet): ?>
-                                  <li><a class="dropdown-item" href="<?='/planets/index.php'?>" id="<?=$planet['nameEng']?>"><?=$planet['nameRus']?></a></li>
-                                <? endforeach;?>
-                                </div>
+                                  <li class="dropdown-menu-adaptive">
+                                  <? foreach ($planets as $planet): ?>
+                                    <a class="dropdown-item" href="<?='/planets/index.php'?>" id="<?=$planet['nameEng']?>"><?=$planet['nameRus']?></a>
+                                  <? endforeach;?>
+                                  </li>
 
                                 </ul>
                               </div>
