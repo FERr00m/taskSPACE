@@ -1,6 +1,6 @@
 'use strict';
 
-const apiKey = 'api_key=...',
+const apiKey = 'api_key=',
     url = 'https://api.nasa.gov/planetary/apod?';
 
 const checkForError = response => {   // Функция для сокращения кода
@@ -30,7 +30,7 @@ const setDataApod = (data = defaultDataObj) => {
         apodInfoHeader.textContent = data['title'];
         apodInfoImg.setAttribute('src', data['url']);
         apodInfoImg.setAttribute('alt', data['title']);
-        apodAuthor.textContent = data['copyright'];
+        data['copyright'] ? apodAuthor.textContent = data['copyright'] : apodAuthor.textContent = defaultDataObj['copyright'];
         apodInfoDate.textContent = new Date(data['date']).toLocaleDateString();
         apodInfoText.textContent = data['explanation'];
         btnHdFoto.setAttribute('href', data['hdurl']);

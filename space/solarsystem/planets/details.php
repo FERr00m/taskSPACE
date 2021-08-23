@@ -37,7 +37,7 @@ foreach ($planets as $planet) {
     <div class="container">
       <h2 class="description__header" id="<?=$currentPlanet['nameEng']?>"><?=$currentPlanet['nameRus']?></h2>
       <p class="description__text">
-          <?=$currentPlanet['description']?> <a class="description__text__link" href="<?=$currentPlanet['wikiLink']?>" target="_blank">Wikipedia</a>
+          <?=$currentPlanet['description']?> <a class="description__text__link" rel="nofollow, noopener" href="<?=$currentPlanet['wikiLink']?>" target="blank">Wikipedia</a>
       </p>
 
       <div class="planets-navigation">

@@ -16,7 +16,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script src="<?='/js/jquery-3.6.0.min.js'?>"></script>
 <script src="<?='/js/sliders/flexSlider/jquery.flexslider-min.js'?>"></script>
+<script src="<?='/js/jqPlugins/jquery.cookie.js'?>"></script>
 <script src="<?='/js/main.js'?>"></script>
 <div style="display: none">Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+<div id="popup-cookie">
+  <div class="container">
+    <div class="popup-cookie-wrapper">
+      <p class="popup-cookie-text">Оставаясь на сайте, вы соглашаетесь c использованием файлов cookie.<a href="<?='/cookie/'?>">(Подробнее)</a></p>
+      <button class="btn btn-info popup-cookie-btn">OK</button>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>

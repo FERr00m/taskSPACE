@@ -24,7 +24,7 @@ $currentNews = $dbh->query("SELECT * FROM `news` WHERE id=$choice")->fetchAll();
                 <p class="news-info__date"><?=date("d-m-Y", strtotime($field['date']))?></p>
                 <p class="news-info__text"><?=$field['text']?></p>
                 <? if(isset($field['imgHd'])): ?>
-                    <a class="btn btn-hd-foto" href="<?='/'.$field['imgHd']?>" target="blanck">HD фото</a>
+                    <a class="btn btn-hd-foto" href="<?='/'.$field['imgHd']?>" target="blank">HD фото</a>
                 <? endif;?>
                 <?endforeach;?>
                 <button class="btn btn-info back">Назад</button>

@@ -1,9 +1,7 @@
 $(document).ready(function () {
     try {
-        var menuLinks = $('.dropdown-item');
         var headerData = $('.promo').attr('data-name');
         var title = $('title');
-        var links = $('.nav-link');
         var header = $('.promo__header');
 
         //Скрываем лоадер после загрузки DOM
@@ -14,12 +12,6 @@ $(document).ready(function () {
         // Меняем title
         title.text(headerData[0].toUpperCase() + headerData.slice(1))
         //=============
-
-        // Устанавливаем куки по которому будем ориентироваться при запросе с БД
-        menuLinks.on('click', function (e) {
-            document.cookie = `planet=${$(this).attr('id')}; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT`;
-        })
-        //============
 
         //News Details кнопка назад=====
         $('.back').on('click', function () {
@@ -41,8 +33,7 @@ $(document).ready(function () {
         } else {
             divNav.addClass('btn-group');
         }
-        $(window).resize(function() {
-
+        $(window).on('resize', function() {
             if ($('.navbar-toggler').css('display') !== 'none') {
                 divNav.removeClass('btn-group');
             } else {
@@ -66,6 +57,51 @@ $(document).ready(function () {
             return false;
         });
         //==================
+
+        //Popup cookies
+        var popupCookie = $("#popup-cookie");
+
+        function popup_hide(popup) {
+            popup.animate({bottom: "-550px"}, 1000, function(){popup.fadeOut(1000);});
+        }
+
+        function popup_show(popup){
+            popup.fadeIn(1000);
+            var popUpHeight = popup.height() / 2 + 1;
+            popup.animate({bottom: `-${popUpHeight}px`}, 1000);
+            $('.popup-cookie-btn').on('click', function(){
+                $.cookie('visit', true, { expires: 7, path: '/' });
+                popup_hide(popup)
+            });
+            $(window).on('resize', function() {
+                var popUpHeight = popup.height() / 2 + 1;
+                popup.css({
+                    'bottom': `-${popUpHeight}px`
+                });
+            })
+
+        }
+
+        if ( $.cookie('visit') == undefined) {
+            popup_show(popupCookie);
+        }
+
+        //==================
+
+        //Сортировка новостей
+        $('#sort-news-select').on('change', function() {
+            $.ajax({
+                type: "get",
+                url: "../news/sorted.php",
+                data: `sort=${$(this).val()}`,
+                success: function (response) {
+
+                    $('.news-list__items').html(response)
+                }
+            });
+        })
+        //==================
+
 
     } catch (e) {
         console.error('Ошибка', e);

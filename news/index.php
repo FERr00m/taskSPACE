@@ -2,7 +2,7 @@
 require_once '../header.php';
 require_once '../db.php';
 
-$news = $dbh->query("SELECT * FROM `news`");
+$news = $dbh->query("SELECT * FROM `news` ORDER BY `news`.`date` DESC");
 
 ?>
 
@@ -21,6 +21,12 @@ $news = $dbh->query("SELECT * FROM `news`");
     <section class="news-list">
       <div class="container" id="result">
         <h1 class="news-list__header">Новости Космоса</h1>
+          <div class="sort-news dropdown">
+            <select class="btn btn-secondary" name="sort-news" id="sort-news-select">
+              <option value="new" selected>Сначала новые</option>
+              <option value="old">Сначала старые</option>
+            </select>
+          </div>
           <div class="result" >
               <div class="news-list__items">
                   <? foreach ($news as $item): ?>

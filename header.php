@@ -24,6 +24,22 @@ $planets = $dbh->query("SELECT * FROM `planets`");
     <!-- Обязательный (и достаточный) тег для браузеров -->
     <link type="image/x-icon" rel="shortcut icon" href="<?='/favicon.ico'?>">
 
+    <!-- Yandex.Metrika counter -->
+    <script>
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(84193969, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+
+    <!-- /Yandex.Metrika counter -->
+
     <!-- Дополнительные иконки для десктопных браузеров -->
     <link type="image/png" sizes="16x16" rel="icon" href="<?='/icons/favicon-16x16.png'?>">
     <link type="image/png" sizes="32x32" rel="icon" href="<?='/icons/favicon-32x32.png'?>">
@@ -75,21 +91,6 @@ $planets = $dbh->query("SELECT * FROM `planets`");
 
     <!-- main CSS -->
     <link rel="stylesheet"  href="<?='/css/style.css'?>">
-
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-      ym(84193969, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
-      });
-    </script>
-
-    <!-- /Yandex.Metrika counter -->
 
     <title>Space - сайт о космосе</title>
 </head>

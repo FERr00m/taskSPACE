@@ -17,6 +17,10 @@ if ($_POST['enter']) {
                 'httponly' => true,
                 'secure' => true
             ]);
+            setcookie('visit', true, [
+              'expires' => time() + 3600,
+                'path' => '/',
+            ]);
             header('Location: ./admin/index.php');
             die();
         } else {
