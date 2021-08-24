@@ -20,6 +20,9 @@ $news = $dbh->query("SELECT * FROM `news` ORDER BY `news`.`date` DESC");
     </section>
     <section class="news-list">
       <div class="container" id="result">
+        <div class="loader-news">
+          <img width="80" height="80" src="<?='/img/news/loaderSort.svg'?>" alt="loader-news">
+        </div>
         <h1 class="news-list__header">Новости Космоса</h1>
           <div class="sort-news dropdown">
             <select class="btn btn-secondary" name="sort-news" id="sort-news-select">
@@ -39,7 +42,7 @@ $news = $dbh->query("SELECT * FROM `news` ORDER BY `news`.`date` DESC");
                           } else {
                             echo '/img/news/default.jpg';
                           }
-                        ?>" height="180" alt="<?=$item['title']?>">
+                        ?>" height="180" loading="lazy" alt="<?=$item['title']?>">
                       </div>
                       <div class="card-body">
                         <h5 class="card-title"><?=$item['title']?></h5>

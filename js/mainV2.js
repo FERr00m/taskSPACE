@@ -20,10 +20,10 @@ $(document).ready(function () {
         //====================
 
         //Flex Slider========
-        $('.flexslider').flexslider({
-            animation: "slide",
+        // $('.flexslider').flexslider({
+        //     animation: "slide",
 
-        });
+        // });
         //=============
 
         //Удаление/добавление класса в навигации для правильного отображения для мобильных
@@ -94,12 +94,19 @@ $(document).ready(function () {
                 type: "get",
                 url: "../news/sorted.php",
                 data: `sort=${$(this).val()}`,
+                beforeSend: function() {
+                    $('.loader-news').fadeIn();
+                },
                 success: function (response) {
-
-                    $('.news-list__items').html(response)
+                    $('.loader-news').fadeOut('slow', function () {
+                        $('.news-list__items').html(response);
+                    });
+                },
+                error: function (error) {
+                    console.error(error);
                 }
             });
-        })
+        });
         //==================
 
 

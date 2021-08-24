@@ -23,7 +23,9 @@ require_once 'header.php';
           <figure class="apod-figure">
               <img class="apod-info__img" src="#"
                   alt="alt"
-                  width="512" >
+                  width="512"
+                  height="288"
+                  loading="lazy" >
               <figcaption class="apod-info__header"></figcaption>
           </figure>
           <p class="apod-author"></p>

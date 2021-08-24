@@ -1,6 +1,6 @@
 'use strict';
 
-const apiKey = 'api_key=',
+const apiKey = 'api_key=NIg2ZhLbv1benmQtBGh9fqv9U4mX3pwazzdih6Y6',
     url = 'https://api.nasa.gov/planetary/apod?';
 
 const checkForError = response => {   // Функция для сокращения кода

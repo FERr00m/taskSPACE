@@ -1,14 +1,13 @@
 <?php
-require_once 'db.php';
 if ($_POST['exit']) {
     setcookie('user', null, -1, '/');
     session_destroy();
     header('Location: ./');
     die();
 }
+require_once 'db.php';
 require_once 'includes/functions.php';
 require_once 'constants.php';
-$planets = $dbh->query("SELECT * FROM `planets`");
 
 ?>
 
@@ -25,7 +24,7 @@ $planets = $dbh->query("SELECT * FROM `planets`");
     <link type="image/x-icon" rel="shortcut icon" href="<?='/favicon.ico'?>">
 
     <!-- Yandex.Metrika counter -->
-    <script>
+    <script async>
        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
@@ -84,13 +83,13 @@ $planets = $dbh->query("SELECT * FROM `planets`");
     <link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Source+Code+Pro:wght@400;500;700&family=Style+Script&family=Teko:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Стили Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?='/css/bootstrap.min.css'?>">
 
     <!-- Flex Slider стили -->
-    <link rel="stylesheet" href="<?='/js/sliders/flexSlider/flexslider.css'?>" />
+    <?/*<link rel="stylesheet" href="<?='/js/sliders/flexSlider/flexslider.css'?>" />*/?>
 
     <!-- main CSS -->
-    <link rel="stylesheet"  href="<?='/css/style.css'?>">
+    <link rel="stylesheet"  href="<?='/css/styleV2.css'?>">
 
     <title>Space - сайт о космосе</title>
 </head>
