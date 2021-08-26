@@ -19,13 +19,19 @@ require_once 'header.php';
         <h2 class="nasa-apod__header">APOD<span>Один из самых популярных веб-сайтов НАСА - <a class="nasa-apod-link" href="https://apod.nasa.gov/apod/astropix.html" rel="nofollow, noopener" target="blank">Astronomy Picture of the Day</a>. Фактически, этот сайт - один из самых популярных во всех федеральных агентствах.</span></h2>
       </div>
       <div class="apod-info">
+        <div class="iframe-wrapper">
+        <iframe class="apod-info__video" width="512" height="288" src="#" frameborder="0"></iframe>
+        <p class="apod-info-video-header"></p>
+        </div>
+
+
         <div class="apod-figure-wrapper">
+
           <figure class="apod-figure">
               <img class="apod-info__img" src="#"
                   alt="alt"
                   width="512"
-                  height="288"
-                  loading="lazy" >
+                  height="288">
               <figcaption class="apod-info__header"></figcaption>
           </figure>
           <p class="apod-author"></p>
@@ -40,7 +46,7 @@ require_once 'header.php';
 
     </div>
   </section>
-<!--  <div class="flexslider" style="width: 300px">-->
+<?/*
 <!--    <ul class="slides">-->
 <!--      <li>-->
 <!--        <img width="300" height="300" src="img/logo.png" />-->
@@ -53,7 +59,7 @@ require_once 'header.php';
 <!--      </li>-->
 <!---->
 <!--    </ul>-->
-<!--  </div>-->
+<!--  </div>-->*/?>
 </main>
 
 <script src="<?='/api/nasa/apod.js'?>"></script>

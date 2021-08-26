@@ -8,6 +8,7 @@ if ($_POST['exit']) {
 require_once 'db.php';
 require_once 'includes/functions.php';
 require_once 'constants.php';
+require_once 'updatePaths.php';
 
 ?>
 
@@ -24,7 +25,7 @@ require_once 'constants.php';
     <link type="image/x-icon" rel="shortcut icon" href="<?='/favicon.ico'?>">
 
     <!-- Yandex.Metrika counter -->
-    <script async>
+    <script>
        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
@@ -38,6 +39,16 @@ require_once 'constants.php';
     </script>
 
     <!-- /Yandex.Metrika counter -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61EV71LBHE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-61EV71LBHE');
+    </script>
 
     <!-- Дополнительные иконки для десктопных браузеров -->
     <link type="image/png" sizes="16x16" rel="icon" href="<?='/icons/favicon-16x16.png'?>">
@@ -89,7 +100,7 @@ require_once 'constants.php';
     <?/*<link rel="stylesheet" href="<?='/js/sliders/flexSlider/flexslider.css'?>" />*/?>
 
     <!-- main CSS -->
-    <link rel="stylesheet"  href="<?='/css/styleV2.css'?>">
+    <link rel="stylesheet"  href="<?='/'.$paths['CSS']['folder'].$paths['CSS']['current'].$paths['CSS']['ext'];?>">
 
     <title>Space - сайт о космосе</title>
 </head>
@@ -152,14 +163,14 @@ require_once 'constants.php';
                       <!-- END Группа вложенной навигации -->
 
                     </ul>
-                    <form class="d-flex" id="form">
+                    <?/*<form class="d-flex" id="form">
                       <input class="form-control me-2" type="search" placeholder="найти..." aria-label="Search">
                       <button class="btn btn-outline-info" type="submit">поиск</button>
-                    </form>
+                    </form>*/?>
                     <div class="login-btn">
                       <? if (!$_COOKIE['user']): ?>
                         <a class="btn btn-info" href="<?='/login.php'?>">войти</a>
-                      <?else:?>
+                      <?elseif ($_COOKIE['user'] == 'admin'):?>
                         <a class="btn btn-info" href="<?='/admin/'?>"><?=strtoupper($_COOKIE['user'])?></a>
                         <form method="post">
                           <input class="btn btn-danger" type="submit" value="EXIT" name="exit">

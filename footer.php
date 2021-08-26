@@ -11,13 +11,13 @@
     </div>
 </footer>
 <a href="#up" class="pageup">
-  <img src="<?='/img/up-arrow.svg'?>" alt="up">
+  <img width="40" height="40" src="<?='/img/up-arrow.svg'?>" alt="up">
 </a>
 <script src="<?='/js/bootstrap.bundle.min.js'?>"></script>
 <script src="<?='/js/jquery-3.6.0.min.js'?>"></script>
 <?/*<script src="<?='/js/sliders/flexSlider/jquery.flexslider-min.js'?>"></script>*/?>
 <script src="<?='/js/jqPlugins/jquery.cookie.js'?>"></script>
-<script src="<?='/js/mainV2.js'?>"></script>
+<script src="<?='/'.$paths['JS']['folder'].$paths['JS']['current'].$paths['JS']['ext'];?>"></script>
 <div style="display: none">Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 <div id="popup-cookie">

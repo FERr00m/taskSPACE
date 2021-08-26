@@ -3,15 +3,18 @@
 session_start();
 
 if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin') {
-    setcookie('user', null, -1, '/');
-    session_destroy();
-    header('Location: ../login.php');
-    die();
+  setcookie('user', null, -1, '/');
+  session_destroy();
+  header('Location: ../login.php');
+  die();
 } else {
 
-    require_once '../db.php';
-    require_once '../header.php';
-
+  require_once '../db.php';
+  require_once '../header.php';
+  require_once 'renamePaths.php';
+  if (!empty($_POST['rename'])) {
+    renameCSSandJS($paths);
+  }
 }
 
 ?>
@@ -27,6 +30,9 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
 
         <h2 class="admin-list__header">Чем займёмся сегодня, <?=$_SESSION['login']?>?</h2>
         <div class="container admin-body__todo">
+          <form method="post">
+            <input name="rename" class="btn btn-outline-info" value="renameCSS&JS" type="submit">
+          </form>
           <div class="card card-admin">
             <div class="card-header">
               НОВОСТИ

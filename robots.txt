@@ -1,2 +1,7 @@
 User-agent: *
-Disallow: /
+Disallow: /admin/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://space.melalex.ru/sitemap.xml

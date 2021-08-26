@@ -42,7 +42,7 @@ $news = $dbh->query("SELECT * FROM `news` ORDER BY `news`.`date` DESC");
                           } else {
                             echo '/img/news/default.jpg';
                           }
-                        ?>" height="180" loading="lazy" alt="<?=$item['title']?>">
+                        ?>" height="180" alt="<?=$item['title']?>">
                       </div>
                       <div class="card-body">
                         <h5 class="card-title"><?=$item['title']?></h5>

@@ -1,6 +1,6 @@
 'use strict';
 
-const apiKey = 'api_key=NIg2ZhLbv1benmQtBGh9fqv9U4mX3pwazzdih6Y6',
+const apiKey = 'api_key=',
     url = 'https://api.nasa.gov/planetary/apod?';
 
 const checkForError = response => {   // Функция для сокращения кода
@@ -20,7 +20,11 @@ const defaultDataObj = {
 const setDataApod = (data = defaultDataObj) => {
     const apodInfo = document.querySelector('.apod-info'),
         apodInfoHeader = apodInfo.querySelector('.apod-info__header'),
+        apodInfoHeaderVideo = apodInfo.querySelector('.apod-info-video-header'),
         apodInfoImg = apodInfo.querySelector('.apod-info__img'),
+        apodInfoVideo = apodInfo.querySelector('.apod-info__video'),
+        apodIframeWrapper = apodInfo.querySelector('.iframe-wrapper'),
+        apodInfoFig = apodInfo.querySelector('.apod-figure'),
         apodAuthor = apodInfo.querySelector('.apod-author'),
         apodInfoDate = apodInfo.querySelector('.apod-info__date'),
         apodInfoText = apodInfo.querySelector('.apod-info__text'),
@@ -28,8 +32,21 @@ const setDataApod = (data = defaultDataObj) => {
 
     try {
         apodInfoHeader.textContent = data['title'];
-        apodInfoImg.setAttribute('src', data['url']);
-        apodInfoImg.setAttribute('alt', data['title']);
+        if (data['media_type'] !== 'video') {
+            apodIframeWrapper.style.display = 'none';
+            apodInfoImg.setAttribute('src', data['url']);
+            apodInfoImg.setAttribute('alt', data['title']);
+        } else {
+            apodInfoFig.style.display = 'none';
+            apodAuthor.style.display = 'none';
+            btnHdFoto.style.display = 'none';
+            apodInfoHeaderVideo.textContent = data['title'];
+            apodInfoVideo.style.display = 'block';
+            apodInfoVideo.setAttribute('src', data['url']);
+        }
+
+        data['copyright'].length > 50 ?  apodAuthor.style.fontSize = '15px' : true;
+
         data['copyright'] ? apodAuthor.textContent = data['copyright'] : apodAuthor.textContent = defaultDataObj['copyright'];
         apodInfoDate.textContent = new Date(data['date']).toLocaleDateString();
         apodInfoText.textContent = data['explanation'];
@@ -45,9 +62,10 @@ const setDataApod = (data = defaultDataObj) => {
 fetch(`${url}${apiKey}`)
     .then(checkForError)
     .then(data => {
+        //console.log(data);
         setDataApod(data);
     })
     .catch(error => {
-        console.log("error", error);
+        console.error("error", error);
         setDataApod();
 });
