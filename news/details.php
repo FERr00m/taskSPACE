@@ -22,7 +22,30 @@ $currentNews = $dbh->query("SELECT * FROM `news` WHERE id=$choice")->fetchAll();
                     }
                 ?>" width="1024" height="576" alt="<?=$field['description']?>">
                 <p class="news-info__date"><?=date("d-m-Y", strtotime($field['date']))?></p>
+                <? if ($field['sourceLink'] && !$field['authorLink']):?>
+                <div class="news-info__copyright">
+                    <a href="<?=$field['sourceLink']?>"
+                        rel="nofollow, noopener"
+                        target="blank"
+                        class="news-info__source"><?=$field['sourceName']?></a>
+                </div>
+
+                <? elseif ($field['authorLink'] && $field['sourceLink']):?>
+                    <div class="news-info__copyright">
+                    <span>Источник: </span><a href="<?=$field['sourceLink']?>"
+                        rel="nofollow, noopener"
+                        target="blank"
+                        class="news-info__source"><?=$field['sourceName']?></a>
+                    <span>Автор: </span><a href="<?=$field['authorLink']?>"
+                        class="news-info__author-name"
+                        rel="nofollow, noopener"
+                        target="blank"><?=$field['authorName']?></a>
+                    </div>
+
+                <? endif;?>
                 <p class="news-info__text"><?=$field['text']?></p>
+
+
                 <? if(isset($field['imgHd'])): ?>
                     <a class="btn btn-hd-foto" href="<?='/'.$field['imgHd']?>" target="blank">HD фото</a>
                 <? endif;?>

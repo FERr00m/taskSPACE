@@ -37,6 +37,16 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
               <textarea class="form-control " rows="3" name="description" id="description<?=$item['id']?>"><?=$item['description']?></textarea>
               <label for="text<?=$item['id']?>">Текст</label>
               <textarea class="form-control" rows="10" name="text" id="text<?=$item['id']?>"><?=$item['text']?></textarea>
+
+              <label for="sourceLink<?=$item['id']?>">Ссылка на источник</label>
+              <input class="form-control " name="sourceLink" id="sourceLink<?=$item['id']?>" value="<?=$item['sourceLink']?>">
+              <label for="sourceName<?=$item['id']?>">Название источника</label>
+              <input class="form-control " name="sourceName" id="sourceName<?=$item['id']?>" value="<?=$item['sourceName']?>">
+              <label for="authorLink<?=$item['id']?>">Ссылка на автора</label>
+              <input class="form-control " name="authorLink" id="authorLink<?=$item['id']?>" value="<?=$item['authorLink']?>">
+              <label for="authorName<?=$item['id']?>">Имя автора</label>
+              <input class="form-control " name="authorName" id="authorName<?=$item['id']?>" value="<?=$item['authorName']?>">
+
               <label for="imgHd<?=$item['id']?>">Путь до HD фото</label>
               <input class="form-control " name="imgHd" id="imgHd<?=$item['id']?>" value="<?=$item['imgHd']?>">
               <label for="imgFull<?=$item['id']?>">Путь до большого фото</label>

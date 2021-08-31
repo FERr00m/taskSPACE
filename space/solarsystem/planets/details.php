@@ -57,6 +57,24 @@ foreach ($planets as $planet) {
 
     </div>
   </section>
+  <?/*<section class="slider">
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="images/img1.jpg" />
+            </li>
+            <li>
+                <img src="images/img2.jpg" />
+            </li>
+            <li>
+                <img src="images/img3.jpg" />
+            </li>
+            <li>
+                <img src="images/img4.jpg" />
+            </li>
+        </ul>
+    </div>
+</section>*/?>
 </main>
 
 <?php

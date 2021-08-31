@@ -101,7 +101,7 @@ require_once 'updatePaths.php';
 
     <!-- main CSS -->
     <link rel="stylesheet"  href="<?='/'.$paths['CSS']['folder'].$paths['CSS']['current'].$paths['CSS']['ext'];?>">
-
+    <script src="<?='/js/jquery-3.6.0.min.js'?>"></script>
     <title>Space - сайт о космосе</title>
 </head>
 <body id="up">

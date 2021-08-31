@@ -1,11 +1,11 @@
 'use strict';
 
-const url = 'https://api.spacexdata.com/v4/launches/latest';
+const urlSpaceX = 'https://api.spacexdata.com/v4/dragons';
 
-const checkForError = response => {   // Функция для сокращения кода
-    if (!response.ok) throw Error(response.statusText);
-    return response.json();
-    };
+// const checkForError = response => {   // Функция для сокращения кода
+//     if (!response.ok) throw Error(response.statusText);
+//     return response.json();
+//     };
 
 // const defaultDataObj = {
 //     "copyright": "Space",
@@ -40,7 +40,7 @@ const checkForError = response => {   // Функция для сокращен�
 
 // }
 
-fetch(`${url}`)
+fetch(`${urlSpaceX}`)
     .then(checkForError)
     .then(data => {
         console.log(data);

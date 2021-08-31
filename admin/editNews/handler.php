@@ -20,6 +20,14 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
         if ($data['imgHd'] == '' || !$matches) {
             $data['imgHd'] = null;
         }
+        if ($data['sourceLink'] == '') {
+            $data['sourceLink'] = null;
+            $data['sourceName'] = null;
+        }
+        if ($data['authorLink'] == '') {
+            $data['authorLink'] = null;
+            $data['authorName'] = null;
+        }
 
         $stmt = $dbh->prepare(
             "UPDATE `news`
@@ -29,7 +37,11 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
                     `imgHd` = :imgHd,
                     `imgFull` = :imgFull,
                     `imgSmall` = :imgSmall,
-                    `date` = :date
+                    `date` = :date,
+                    `sourceLink` = :sourceLink,
+                    `sourceName` = :sourceName,
+                    `authorLink` = :authorLink,
+                    `authorName` = :authorName
                 WHERE `id`=:id");
         $stmt->execute([
             'title'=>$data['title'],
@@ -39,7 +51,11 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
             'imgFull'=>$data['imgFull'],
             'imgSmall'=>$data['imgSmall'],
             'date'=>$data['date'],
-            'id'=>$data['id']
+            'id'=>$data['id'],
+            'sourceLink'=>$data['sourceLink'],
+            'sourceName'=>$data['sourceName'],
+            'authorLink'=>$data['authorLink'],
+            'authorName'=>$data['authorName']
         ]);
     } catch (Exception $e) {
         $responseSQL = 'FAILED. Something went wrong...';

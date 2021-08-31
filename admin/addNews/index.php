@@ -43,6 +43,18 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
                         <p class="add-alert add-alert-text"></p>
                         <textarea class="form-control" maxlength="1500" rows="10" name="text" id="text" placeholder="Напиши..."></textarea>
 
+                        <label for="sourceLink">Ссылка на источник (если есть)</label>
+                        <input type="text" class="form-control " name="sourceLink" id="sourceLink">
+
+                        <label for="sourceName">Название источника</label>
+                        <input type="text" class="form-control " name="sourceName" id="sourceName">
+
+                        <label for="authorLink">Ссылка на автора (если есть)</label>
+                        <input type="text" class="form-control " name="authorLink" id="authorLink">
+
+                        <label for="authorName">Имя автора</label>
+                        <input type="text" class="form-control " name="authorName" id="authorName">
+
                         <label for="imgHd">Путь до HD фото (удалить путь, если нет фото)</label>
                         <input type="text" class="form-control " name="imgHd" id="imgHd" value="img/hd/">
 

@@ -29,6 +29,11 @@ $news = $dbh->query("SELECT * FROM `news` ORDER BY `news`.`date` DESC");
               <option value="new" selected>Сначала новые</option>
               <option value="old">Сначала старые</option>
             </select>
+            <form class="d-flex" id="search" method="get" action="searchResult.php">
+              <input name="query" class="form-control me-2" type="search" placeholder="поиск..." aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">найти</button>
+
+            </form>
           </div>
           <div class="result" >
               <div class="news-list__items">
@@ -42,7 +47,7 @@ $news = $dbh->query("SELECT * FROM `news` ORDER BY `news`.`date` DESC");
                           } else {
                             echo '/img/news/default.jpg';
                           }
-                        ?>" height="180" alt="<?=$item['title']?>">
+                        ?>" height="180" width="318" alt="<?=$item['title']?>">
                       </div>
                       <div class="card-body">
                         <h5 class="card-title"><?=$item['title']?></h5>

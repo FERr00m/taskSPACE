@@ -5,14 +5,12 @@ $(document).ready(function () {
         var header = $('.promo__header');
 
         //Скрываем лоадер после загрузки DOM
-        function loaderHide() {
+
             $('.overlay-loader').fadeOut(1000);
             header.fadeTo(3000, 1);
-        }
 
-        window.addEventListener('load', function() {
-            loaderHide();
-        });
+
+
 
         //===============
 

@@ -20,7 +20,7 @@ require_once 'header.php';
       </div>
       <div class="apod-info">
         <div class="iframe-wrapper">
-        <iframe class="apod-info__video" width="512" height="288" src="#" frameborder="0"></iframe>
+        <iframe class="apod-info__video" width="512" height="288" src="" frameborder="0" allowfullscreen></iframe>
         <p class="apod-info-video-header"></p>
         </div>
 

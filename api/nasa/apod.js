@@ -1,6 +1,6 @@
 'use strict';
 
-const apiKey = 'api_key=',
+const apiKey = 'api_key=...',
     url = 'https://api.nasa.gov/planetary/apod?';
 
 const checkForError = response => {   // Функция для сокращения кода
@@ -45,7 +45,9 @@ const setDataApod = (data = defaultDataObj) => {
             apodInfoVideo.setAttribute('src', data['url']);
         }
 
-        data['copyright'].length > 50 ?  apodAuthor.style.fontSize = '15px' : true;
+        if (data['copyright']) {
+            data['copyright'].length > 50 ?  apodAuthor.style.fontSize = '15px' : true;
+        }
 
         data['copyright'] ? apodAuthor.textContent = data['copyright'] : apodAuthor.textContent = defaultDataObj['copyright'];
         apodInfoDate.textContent = new Date(data['date']).toLocaleDateString();
