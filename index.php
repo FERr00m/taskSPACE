@@ -4,7 +4,7 @@ require_once 'header.php';
 <main class="main">
   <section class="promo main" data-name="space - сайт о космосе">
     <div class="container">
-      <h1 class="promo__header">SPACE</h1>
+      <h1 class="promo__header">SPA<span class="neon">C</span>E</h1>
       <div class="quote">
         <blockquote cite="https://ru.wikipedia.org/wiki/%D0%A5%D0%BE%D0%B9%D0%BB,_%D0%A4%D1%80%D0%B5%D0%B4" class="quote__text">"Космос вовсе не далек. До него всего час езды — при условии, что твоя машина может ехать вертикально вверх."</blockquote>
         <p class="quote__author" title="Сэр Фред Хойл — известный британский астроном и космолог.">сэр Фред Хойл</p>

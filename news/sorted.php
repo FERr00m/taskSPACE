@@ -9,16 +9,16 @@ if ($_GET['sort'] == 'old') {
 
 ?>
 <? foreach ($news as $item): ?>
-<div class="card">
+<div class="card box">
     <div class="card-img-top">
-    <img src="<?
+    <img class="lazy" data-src="<?
         preg_match('~^img/news/small/\w+(-{0,1})\w+.(jpg|jpeg|png)$~', "{$item['imgSmall']}", $matches);
         if($matches) {
         echo '/'.$item['imgSmall'];
         } else {
         echo '/img/news/default.jpg';
         }
-    ?>" height="180" alt="<?=$item['title']?>">
+    ?>" height="180" width="318" alt="<?=$item['title']?>">
     </div>
     <div class="card-body">
     <h5 class="card-title"><?=$item['title']?></h5>

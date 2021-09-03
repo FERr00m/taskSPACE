@@ -9,9 +9,6 @@ $(document).ready(function () {
             $('.overlay-loader').fadeOut(1000);
             header.fadeTo(3000, 1);
 
-
-
-
         //===============
 
         // Меняем title
@@ -105,6 +102,9 @@ $(document).ready(function () {
                 success: function (response) {
                     $('.loader-news').fadeOut('slow', function () {
                         $('.news-list__items').html(response);
+                        boxes = null;
+                        window.scrollBy(0, 1);
+                        lazyLoadInstance.update();
                     });
                 },
                 error: function (error) {
@@ -114,6 +114,10 @@ $(document).ready(function () {
         });
         //==================
 
+        //Ленивая загрузка изображений (для применения в теге img необходимо указать class="lazy" и src заменить на data-src)
+        var lazyLoadInstance = new LazyLoad();
+        // lazyLoadInstance.update(); // нужно вызывать при обновлении DOM с помощью AJAX
+        //==================
 
     } catch (e) {
         console.error('Ошибка', e);

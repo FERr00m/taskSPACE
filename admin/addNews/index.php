@@ -39,9 +39,9 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
                         <p class="add-alert add-alert-description"></p>
                         <textarea class="form-control " maxlength="100" rows="3" name="description" id="description" placeholder="Напиши..."></textarea>
 
-                        <label for="text">Текст<sup>*</sup> (минимум 3, максимум 1500 символов, сейчас: <span class="symbols-length-text">0</span>)</label>
+                        <label for="text">Текст<sup>*</sup> (минимум 3, максимум 3000 символов, сейчас: <span class="symbols-length-text">0</span>)</label>
                         <p class="add-alert add-alert-text"></p>
-                        <textarea class="form-control" maxlength="1500" rows="10" name="text" id="text" placeholder="Напиши..."></textarea>
+                        <textarea class="form-control" maxlength="3000" rows="10" name="text" id="text" placeholder="Напиши..."></textarea>
 
                         <label for="sourceLink">Ссылка на источник (если есть)</label>
                         <input type="text" class="form-control " name="sourceLink" id="sourceLink">

@@ -16,6 +16,7 @@
 <script src="<?='/js/bootstrap.bundle.min.js'?>"></script>
 <?/*<script src="<?='/js/sliders/flexSlider/jquery.flexslider-min.js'?>"></script>*/?>
 <script src="<?='/js/jqPlugins/jquery.cookie.js'?>"></script>
+<script src="<?='/js/handlers/lazyload.min.js'?>"></script>
 <script src="<?='/'.$paths['JS']['folder'].$paths['JS']['current'].$paths['JS']['ext'];?>"></script>
 <div style="display: none">Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 

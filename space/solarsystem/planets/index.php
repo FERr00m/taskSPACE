@@ -24,11 +24,7 @@ $planets = $dbh->query("SELECT * FROM `planets`");
         <? endforeach;?>
 
     </div>
-
-
   </section>
-</main>
-
 <?php
 require_once ROOT.'/footer.php';
 ?>

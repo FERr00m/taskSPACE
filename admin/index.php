@@ -33,6 +33,7 @@ if (!$_SESSION['login'] || !$_SESSION['password'] || $_COOKIE['user'] != 'admin'
           <form method="post">
             <input name="rename" class="btn btn-outline-info" value="renameCSS&JS" type="submit">
           </form>
+          <a class="btn btn-warning" style="width: 160px;" href="dev/test.php">Test page</a>
           <div class="card card-admin">
             <div class="card-header">
               НОВОСТИ

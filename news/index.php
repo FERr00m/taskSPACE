@@ -9,7 +9,7 @@ $news = $dbh->query("SELECT * FROM `news` ORDER BY `news`.`date` DESC");
 <main class="main">
     <section class="promo news" data-name="Новости про космос - Space">
         <div class="container">
-            <p class="promo__header">NEWS</p>
+            <p class="promo__header">N<span class="neon">E</span>WS</p>
             <?//<a href="<?='/'.getRoot(__FILE__)">ssss</a> Доработать?>
 
             <div class="quote">
@@ -38,9 +38,9 @@ $news = $dbh->query("SELECT * FROM `news` ORDER BY `news`.`date` DESC");
           <div class="result" >
               <div class="news-list__items">
                   <? foreach ($news as $item): ?>
-                    <div class="card">
+                    <div class="card box">
                       <div class="card-img-top">
-                        <img src="<?
+                        <img class="lazy" data-src="<?
                           preg_match('~^img/news/small/\w+(-{0,1})\w+.(jpg|jpeg|png)$~', "{$item['imgSmall']}", $matches);
                           if($matches) {
                             echo '/'.$item['imgSmall'];
@@ -82,7 +82,7 @@ $news = $dbh->query("SELECT * FROM `news` ORDER BY `news`.`date` DESC");
 
     </section>
 </main>
-
+<script src="<?='/js/newsBlock/news.js'?>"></script>
 <?php
 require_once '../footer.php';
 ?>

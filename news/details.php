@@ -24,7 +24,7 @@ $currentNews = $dbh->query("SELECT * FROM `news` WHERE id=$choice")->fetchAll();
                 <p class="news-info__date"><?=date("d-m-Y", strtotime($field['date']))?></p>
                 <? if ($field['sourceLink'] && !$field['authorLink']):?>
                 <div class="news-info__copyright">
-                    <a href="<?=$field['sourceLink']?>"
+                <span>Источник: </span><a href="<?=$field['sourceLink']?>"
                         rel="nofollow, noopener"
                         target="blank"
                         class="news-info__source"><?=$field['sourceName']?></a>
