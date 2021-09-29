@@ -88,7 +88,7 @@ require_once 'updatePaths.php';
 
                   <a  href="<?='/'?>">
                     <div class="navbar-brand">
-                      <span>SPACE</span><img src="<?='/img/logo.svg'?>" width="40" height="40" alt="logo">
+                      <span>SPACE</span><img src="<?='/img/logo.png'?>" width="40" height="40" alt="logo">
                     </div>
                   </a>
 
